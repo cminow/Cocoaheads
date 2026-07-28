@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct CocoaheadsApp: App {
+    @State var dataController: DataController = DataController()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(dataController)
         }
     }
 }
