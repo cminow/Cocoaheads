@@ -15,7 +15,7 @@ struct ContentView: View {
         VStack {
             Text("Next Cocoaheads Meeting")
                 .foregroundStyle(colorScheme == .light ? .black : .white)
-                .opacity(0.750)
+                .opacity(0.5)
                 .font(.system(size: 20.0).smallCaps().bold())
             TimelineView(.periodic(from: .now, by: 1.0)) { context in
                 Text("\(dataController.nextMeetingDateString)")
@@ -27,7 +27,6 @@ struct ContentView: View {
                                    nextMeetingDate: dataController.nextMeetingDate,
                                    currentTime: context.date)
                         .frame(maxWidth: .infinity, maxHeight: 16.0)
-                        .shadow(color: .primary.opacity(0.5), radius: 12.0)
                         .padding([.leading, .trailing], 18.0)
                 }
             }
@@ -41,14 +40,17 @@ struct ContentView: View {
                             Text(dataController.meetings[index].stringValue)
                                 .bold()
                         }
+                        .listRowInsets(.init(top: 13.0, leading: 20.0, bottom: 12.0, trailing: 20.0))
+                        .listRowBackground((index % 2 == 0) ? Color(.systemBlue).opacity(0.35) : Color(.systemGray).opacity(0.5))
                     }
                 } header: {
                     Text("Future Meetings")
+                        .foregroundStyle(colorScheme == .light ? .black : .white)
+                        .font(.subheadline.bold().smallCaps())
                 }
             }
             .environment(\.defaultMinListRowHeight, 0)
             .scrollContentBackground(.hidden)
-            .shadow(color: .primary.opacity(0.5), radius: 12.0)
         }
         .padding()
     }
