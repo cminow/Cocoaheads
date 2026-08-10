@@ -41,7 +41,7 @@ struct ContentView: View {
                                 .bold()
                         }
                         .listRowInsets(.init(top: 13.0, leading: 20.0, bottom: 12.0, trailing: 20.0))
-                        .listRowBackground((index % 2 == 0) ? Color(.systemGray).opacity(0.3) : Color(.systemGray).opacity(0.35))
+                        .listRowBackground((index % 2 == 0) ? Color(.systemGray).opacity(0.4) : Color(.systemGray).opacity(0.5))
                     }
                 } header: {
                     Text("Future Meetings")
@@ -52,7 +52,21 @@ struct ContentView: View {
             .environment(\.defaultMinListRowHeight, 0)
             .scrollContentBackground(.hidden)
         }
-        .padding()
+        .background {
+            backgroundGradient
+                .ignoresSafeArea()
+        }
+    }
+
+    var backgroundGradient: MeshGradient {
+        MeshGradient(width: 2, height: 2, points: [
+            [0.0, 0.0], [1.0, 0.0], [0.0, 1.0], [1.0, 1.0]
+        ], colors: [
+            Color(.systemGray).opacity(0.25),
+            Color(.systemGray).opacity(0.25),
+            Color(.systemGray).opacity(0.75),
+            Color(.systemGray).opacity(0.75)
+        ])
     }
 }
 
