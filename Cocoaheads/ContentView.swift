@@ -41,7 +41,7 @@ struct ContentView: View {
                                 .bold()
                         }
                         .listRowInsets(.init(top: 13.0, leading: 20.0, bottom: 12.0, trailing: 20.0))
-                        .listRowBackground((index % 2 == 0) ? Color(.systemGray).opacity(0.4) : Color(.systemGray).opacity(0.5))
+                        .listRowBackground((index % 2 == 0) ? Color(.systemBackground).opacity(0.3) : Color(.systemBackground).opacity(0.4))
                     }
                 } header: {
                     Text("Future Meetings")
