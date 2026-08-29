@@ -55,6 +55,8 @@ struct ContentView: View {
         .background {
             backgroundGradient
                 .ignoresSafeArea()
+                .compositingGroup()
+                .hexPixellateLayer(scale: 20)
         }
     }
 
