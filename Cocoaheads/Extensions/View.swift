@@ -21,7 +21,7 @@ struct HexPixellateLayer: ViewModifier {
             content.layerEffect(
                 ShaderLibrary.hexPixelateLayer(
                     .float2(proxy.size),
-                    .float(40)
+                    .float(scale)
                 ),
                 maxSampleOffset: .zero)
         }
