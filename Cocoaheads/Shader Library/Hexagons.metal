@@ -39,7 +39,7 @@ float rand(int x, int y, int z) {
 
     half4 sampledColor = layer.sample(clampedCenter);
 
-    float randomValue = rand(int(clampedCenter.x), int(clampedCenter.y), 5.0) * 0.05;
+    float randomValue = rand(int(clampedCenter.x), int(clampedCenter.y), 5.0) * 0.1;
     
     sampledColor.r += randomValue;
     sampledColor.g += randomValue;
